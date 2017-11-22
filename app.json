@@ -1,0 +1,9 @@
+{
+  "name": "apier-git-component-adder",
+  "description": "The Apier Project - A component adder test",
+  "repository": "https://github.com/phytertek/apier-git-component-adder",
+  "logo":
+    "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}

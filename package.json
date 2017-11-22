@@ -1,0 +1,20 @@
+{
+  "name": "apier-git-component-adder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phytertek/apier-git-component-adder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phytertek/apier-git-component-adder/issues"
+  },
+  "homepage": "https://github.com/phytertek/apier-git-component-adder#readme"
+}
