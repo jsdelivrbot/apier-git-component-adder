@@ -17,7 +17,9 @@ console.log(newDirExists);
 const newFileLoc = `${newDir}/aNewFile.js`;
 let newFileExists = fs.existsSync(newFileLoc);
 if (!newFileExists) {
-  const callCommands = spawn(`cd ${newDir} && touch aNewFile.js`);
+  const callCommands = spawn(`cd ${newDir} && touch aNewFile.js`, {
+    shell: true
+  });
   callCommands.on('exit', () => {
     newFileExists = fs.existsSync(newFileLoc);
     console.log('New file exist!!!', newFileExists);
