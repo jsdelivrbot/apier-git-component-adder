@@ -2,7 +2,7 @@ const fs = require('fs');
 const Git = require('nodegit');
 // const spawn = require('child_process').spawn;
 
-// const currentDir = __dirname;
+const currentDir = __dirname;
 
 // const newDir = `${currentDir}/rapgod`;
 // console.log(newDir);
