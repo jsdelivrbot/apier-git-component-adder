@@ -4,39 +4,41 @@ const spawn = require('child_process').spawn;
 
 const currentDir = __dirname;
 
-const newDir = `${currentDir}/rapgod`;
-console.log(newDir);
+// const newDir = `${currentDir}/rapgod`;
+// console.log(newDir);
 
-let newDirExists = fs.existsSync(newDir);
-console.log(newDirExists);
+// let newDirExists = fs.existsSync(newDir);
+// console.log(newDirExists);
 
-if (!newDirExists) fs.mkdirSync(newDir);
+// if (!newDirExists) fs.mkdirSync(newDir);
 
-newDirExists = fs.existsSync(newDir);
-console.log(newDirExists);
-const newFileLoc = `${newDir}/aNewFile.js`;
-let newFileExists = fs.existsSync(newFileLoc);
-if (!newFileExists) {
-  const call = spawn(`cd ${newDir} && touch aNewFile.js`, {
-    shell: true
-  });
-  call.on('exit', () => {
-    newFileExists = fs.existsSync(newFileLoc);
-    console.log('New file exist!!!', newFileExists);
-  });
-} else {
-  console.log('New file already exits!');
-  return;
-}
+// newDirExists = fs.existsSync(newDir);
+// console.log(newDirExists);
+// const newFileLoc = `${newDir}/aNewFile.js`;
+// let newFileExists = fs.existsSync(newFileLoc);
+// if (!newFileExists) {
+//   const call = spawn(`cd ${newDir} && touch aNewFile.js`, {
+//     shell: true
+//   });
+//   call.on('exit', () => {
+//     newFileExists = fs.existsSync(newFileLoc);
+//     console.log('New file exist!!!', newFileExists);
+//   });
+// } else {
+//   console.log('New file already exits!');
+//   return;
+// }
 
 const gitUrl = 'https://github.com/phytertek/apier-todo-component.git';
 const newGitDir = `${currentDir}/apier-todo-component`;
 let newGitDirExists = fs.existsSync(newGitDir);
-if (!newGitDir) {
+if (!newGitDirExists) {
   const call = spawn(`git clone ${gitUrl}`);
   call.on('exit', () => {
     console.log('git process exited');
     newGitDirExists = fs.existsSync(newGitDir);
+    const config = require(newGitDir + '/config.js');
+    console.log(config);
     console.log(newGitDirExists);
   });
 } else {
