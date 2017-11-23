@@ -33,7 +33,7 @@ const gitUrl = 'https://github.com/phytertek/apier-todo-component.git';
 const newGitDir = `${currentDir}/apier-todo-component`;
 let newGitDirExists = fs.existsSync(newGitDir);
 if (!newGitDirExists) {
-  const call = spawn(`git clone ${gitUrl}`);
+  const call = spawn(`git clone ${gitUrl}`, { shell: true });
   call.on('exit', error => {
     if (error) console.error(error);
     console.log('git process exited');
