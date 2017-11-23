@@ -1,8 +1,8 @@
 const fs = require('fs');
+const Git = require('nodegit');
+// const spawn = require('child_process').spawn;
 
-const spawn = require('child_process').spawn;
-
-const currentDir = __dirname;
+// const currentDir = __dirname;
 
 // const newDir = `${currentDir}/rapgod`;
 // console.log(newDir);
@@ -31,18 +31,15 @@ const currentDir = __dirname;
 
 const gitUrl = 'https://github.com/phytertek/apier-todo-component.git';
 const newGitDir = `${currentDir}/apier-todo-component`;
-let newGitDirExists = fs.existsSync(newGitDir);
-if (!newGitDirExists) {
-  const call = spawn(`git clone ${gitUrl}`, { shell: true });
-  call.on('exit', error => {
-    if (error) console.error(error);
-    console.log('git process exited');
+
+const runGit = async () => {
+  let newGitDirExists = fs.existsSync(newGitDir);
+  if (!newGitDirExists) {
+    const clone = await Git.Clone(gitUrl);
     newGitDirExists = fs.existsSync(newGitDir);
-    const config = require(newGitDir + '/config.js');
-    console.log(config);
-    console.log(newGitDirExists);
-  });
-} else {
-  console.log('New git dir already exists?!?');
-}
+    console.log('newgitdir now exists???', newGitDirExists);
+  } else {
+    console.log('New git dir already exists?!?');
+  }
+};
 // https://github.com/phytertek/apier-todo-component.git
