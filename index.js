@@ -40,6 +40,10 @@ const runGit = async () => {
       console.log(clone);
       newGitDirExists = fs.existsSync(newGitDir);
       console.log('newgitdir now exists???', newGitDirExists);
+      if (newGitDirExists) {
+        const config = require(`${newGitDir}/config`);
+        console.log(config);
+      }
     } else {
       console.log('New git dir already exists?!?');
     }
