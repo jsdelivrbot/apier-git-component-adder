@@ -35,7 +35,7 @@ const newGitDir = `${currentDir}/apier-todo-component`;
 const runGit = async () => {
   let newGitDirExists = fs.existsSync(newGitDir);
   if (!newGitDirExists) {
-    const clone = await Git.Clone(gitUrl);
+    const clone = await Git.Clone(gitUrl, newGitDir);
     newGitDirExists = fs.existsSync(newGitDir);
     console.log('newgitdir now exists???', newGitDirExists);
   } else {
