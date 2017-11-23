@@ -42,4 +42,6 @@ const runGit = async () => {
     console.log('New git dir already exists?!?');
   }
 };
+
+runGit();
 // https://github.com/phytertek/apier-todo-component.git
