@@ -33,14 +33,18 @@ const gitUrl = 'https://github.com/phytertek/apier-todo-component.git';
 const newGitDir = `${currentDir}/apier-todo-component`;
 
 const runGit = async () => {
-  let newGitDirExists = fs.existsSync(newGitDir);
-  if (!newGitDirExists) {
-    const clone = await Git.Clone(gitUrl, newGitDir);
-    console.log(clone);
-    newGitDirExists = fs.existsSync(newGitDir);
-    console.log('newgitdir now exists???', newGitDirExists);
-  } else {
-    console.log('New git dir already exists?!?');
+  try {
+    let newGitDirExists = fs.existsSync(newGitDir);
+    if (!newGitDirExists) {
+      const clone = await Git.Clone(gitUrl, newGitDir);
+      console.log(clone);
+      newGitDirExists = fs.existsSync(newGitDir);
+      console.log('newgitdir now exists???', newGitDirExists);
+    } else {
+      console.log('New git dir already exists?!?');
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
