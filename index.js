@@ -36,6 +36,7 @@ const runGit = async () => {
   let newGitDirExists = fs.existsSync(newGitDir);
   if (!newGitDirExists) {
     const clone = await Git.Clone(gitUrl, newGitDir);
+    console.log(clone);
     newGitDirExists = fs.existsSync(newGitDir);
     console.log('newgitdir now exists???', newGitDirExists);
   } else {
