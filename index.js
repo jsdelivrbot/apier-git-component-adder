@@ -34,7 +34,8 @@ const newGitDir = `${currentDir}/apier-todo-component`;
 let newGitDirExists = fs.existsSync(newGitDir);
 if (!newGitDirExists) {
   const call = spawn(`git clone ${gitUrl}`);
-  call.on('exit', () => {
+  call.on('exit', error => {
+    if (error) console.error(error);
     console.log('git process exited');
     newGitDirExists = fs.existsSync(newGitDir);
     const config = require(newGitDir + '/config.js');
