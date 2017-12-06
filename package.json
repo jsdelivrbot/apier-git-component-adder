@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/phytertek/apier-git-component-adder/issues"
   },
-  "homepage": "https://github.com/phytertek/apier-git-component-adder#readme"
+  "homepage": "https://github.com/phytertek/apier-git-component-adder#readme",
+  "dependencies": {
+    "nodegit": "^0.20.3"
+  }
 }
