@@ -32,6 +32,7 @@ const currentDir = __dirname;
 const gitUrl = 'https://github.com/phytertek/apier-todo-component.git';
 const newGitDir = `${currentDir}/apier-todo-component`;
 
+<<<<<<< HEAD
 const runGit = async () => {
   try {
     let newGitDirExists = fs.existsSync(newGitDir);
@@ -53,4 +54,22 @@ const runGit = async () => {
 };
 
 runGit();
+=======
+newDirExists = fs.existsSync(newDir);
+console.log(newDirExists);
+const newFileLoc = `${newDir}/aNewFile.js`;
+let newFileExists = fs.existsSync(newFileLoc);
+if (!newFileExists) {
+  const callCommands = spawn(`cd ${newDir} && touch aNewFile.js`, {
+    shell: true
+  });
+  callCommands.on('exit', () => {
+    newFileExists = fs.existsSync(newFileLoc);
+    console.log('New file exist!!!', newFileExists);
+  });
+} else {
+  console.log('New file already exits!');
+  return;
+}
+>>>>>>> dea62138a0a350cf6e6432eeb34379a206ed17a7
 // https://github.com/phytertek/apier-todo-component.git
